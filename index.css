@@ -1,3 +1,61 @@
-#container{
-    background-color: rgb(58, 229, 121);
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 2px solid black;
 }
+.logo {
+    width: 100px;
+  }
+  .nav-items > ul {
+    display: flex;
+    list-style-type: none;
+    display: flex;
+  }
+  .nav-items > ul > li {
+    padding: 10px;
+  }
+  .card {
+    width: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card > img {
+    width: 100%;
+  }
+  
+  .restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .shimmer-card{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .shimmer-card-img{
+    width: 200px;
+    height: 125px;
+    background-color: rgb(173, 169, 169);
+  }
+
+  .shimmer-card-h2{
+    height: 20px;
+    background-color: rgb(173, 169, 169);
+  }
+
+  .shimmer-card-h3{
+    height: 35px;
+    width: 170px;
+    background-color: rgb(173, 169, 169);
+  }
+  .shimmer-card-h4{
+    height: 15px;
+    width: 140px;
+    background-color: rgb(173, 169, 169);
+  }
