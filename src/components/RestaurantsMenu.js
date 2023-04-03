@@ -14,8 +14,7 @@ const RestaurantsMenu = () => {
 
     async function getRestrantsInfo (){
         const data = await fetch(
-            "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=" +
-            resId
+            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9621948&lng=77.7115841&restaurantId=8530&submitAction=ENTER"
         );
         const json = await data.json();
         console.log(json.data)
@@ -36,9 +35,11 @@ const RestaurantsMenu = () => {
             <div>
                 <h1>Menu</h1>
                 <ul>
-                {Object.values(restaurant?.menu?.items).map((item) => (
+                {/*
+                Object.values(restaurant?.menu?.items).map((item) => (
                     <li key={item.id}>{item.name}</li>
-                ))}
+                ))
+                */}
                 </ul>
             </div>
         </div>
