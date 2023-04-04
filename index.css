@@ -3,6 +3,7 @@
   justify-content: space-between;
   margin: 10px;
   border: 2px solid black;
+  background-color:rgb(117, 213, 181);
 }
 .logo {
     width: 100px;
@@ -17,6 +18,7 @@
   }
   .card {
     width: 200px;
+    height : 350px;
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
@@ -58,4 +60,40 @@
     height: 15px;
     width: 140px;
     background-color: rgb(173, 169, 169);
+  }
+
+
+  .sub-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    border: 2px solid black;
+    background-color:aquamarine;
+  }
+  .sub-header > ul {
+    display: flex;
+    list-style-type: none;
+    display: flex;
+  }
+  .sub-header > ul > li {
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    height: 200px;
+    flex-wrap: wrap;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: justify;
+    text-decoration: double;
+    font-size: x-large;
+  }
+
+  .instamart{
+    background-image: url("https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/dvcb4z5wqug9fligbvyv");
+  }
+  .fresh-meat{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvuymSkyHJO9PNswqxMHRb1bXRw4FUheBLDwAIOw4UR6ik_WWdUqjJpYBlHhKR2lE4PaY&usqp=CAU");
+  }
+  .insta-delivery{
+    background-image: url("https://postandparcel.info/wp-content/uploads/2016/05/elGrocer.png");
   }
