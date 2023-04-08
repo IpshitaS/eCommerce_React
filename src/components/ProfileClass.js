@@ -4,7 +4,7 @@ class ProfileClass extends React.Component{
         super(props)
         this.state = {
             userInfo : {
-                login: "Dummy Name",
+                name: "Dummy Name",
                 location: "Dummy Location",
             }
         }
@@ -32,9 +32,10 @@ class ProfileClass extends React.Component{
     render(){
         return (
             <div className="profile">
-                <h2>Profile Class commponent</h2>
-                <img src={this.state.userInfo?.avatar_url} />
-                <h4>Name: {this.state.userInfo?.login}</h4>
+                <br/>
+                <h2 className="font-bold">Profile</h2>
+                <img className="h-44" src={this.state.userInfo?.avatar_url} />
+                <h4>Name: {this.state.userInfo?.name}</h4>
                 <h4>Location: {this.state.userInfo?.location}</h4>
             </div>
         )

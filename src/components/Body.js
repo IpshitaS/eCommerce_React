@@ -42,10 +42,10 @@ const Body = () => {
 
   return allRestaurants?.length === 0 ? (<Shimmer/>) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-green-200 m-5">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-slate-300"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -53,7 +53,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="p-2 bg-red-300 text-white rounded-xl hover:bg-gray-500"
           onClick={() => {
             //need to filter the data
             const data = filterData(searchText, allRestaurants);
@@ -64,23 +64,23 @@ const Body = () => {
           Search
         </button>
 
-        {/* <input
+        <input
           type="text"
-          className="location-input"
+          className="focus:bg-slate-300 ml-40"
           placeholder="Location"
         />
-        <button className="location-btn">
-          Search
-        </button> */}
+        <button 
+          className="p-2 bg-red-300 text-white rounded-xl hover:bg-gray-500">
+          Location
+        </button>
 
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link 
               to={"/restraunt/" + restaurant.data.id}
-              key ={restaurant.data.id}
-            >
+              key ={restaurant.data.id}>
               <RestaurantCard {...restaurant.data} />
             </Link>
           );

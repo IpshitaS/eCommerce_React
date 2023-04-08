@@ -16,7 +16,7 @@ class About extends Component{
     render(){
         return(
             <div>
-                <h1>About us page</h1>
+                <h1 className="font-bold text-lg">About us page</h1>
                 <p>
                     This is my react eCommerce project. Where i tried to make a app just like swiggy.🚀
                 </p>

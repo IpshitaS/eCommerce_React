@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 const Contact = () => {
+    const {user} = useContext(UserContext)
     return (
-        <p>email Id : ipshitashetty@gmail.com <br/> mobile no. : 987654321</p>
+        <span>email Id : {user.email} <br/> mobile no. : {user.mob}</span>
     )
 }
 
