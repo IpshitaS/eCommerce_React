@@ -11,20 +11,27 @@ import Profile from "./components/Profile";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 import SubHeader from "./components/SubHeader";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const About = lazy( () => import("./components/About"))
 const InstaMart = lazy( () => import("./components/InstaMart")) 
 const InstaDelivery = lazy( () => import("./components/InstaDelivery"))
 const FreshMeat = lazy( () => import("./components/FreshMeat"))
 
+
+const login = () =>{
+
+}
+
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <SubHeader />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 

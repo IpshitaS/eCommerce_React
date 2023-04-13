@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { restaurantList } from "../config";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import {filterData} from "../utils/helper";
+import { fetch_LIST_URL } from "../config";
+
 
 const Body = () => {
 
@@ -17,11 +18,9 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9621948&lng=77.7115841&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(fetch_LIST_URL);
     const json = await data.json();
-    //console.log(json);
+    console.log(json);
     //optional channing "?"
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -42,11 +41,11 @@ const Body = () => {
 
   return allRestaurants?.length === 0 ? (<Shimmer/>) : (
     <>
-      <div className="p-5 bg-green-200 m-5">
+      <div className="p-2 bg-green-200 mx-12">
         <input
           type="text"
-          className="focus:bg-slate-300"
-          placeholder="Search"
+          className="focus:bg-slate-300 ml-52"
+          placeholder="Search Restro..."
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -66,7 +65,7 @@ const Body = () => {
 
         <input
           type="text"
-          className="focus:bg-slate-300 ml-40"
+          className="focus:bg-slate-300 ml-60"
           placeholder="Location"
         />
         <button 
@@ -75,7 +74,7 @@ const Body = () => {
         </button>
 
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap p-2 m-2">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link 

@@ -6,7 +6,7 @@ const Title = () => {
     return (
       <a href="/">
         <img
-          className="h-28  px-3 py-2"
+          className="h-24  px-5 py-1"
           alt="logo"
           src="https://yt3.googleusercontent.com/ytc/AL5GRJXudT76175T4x4n7eslWM1YkgNLHDSSqfXGoadl=s900-c-k-c0x00ffffff-no-rj"
         />
@@ -19,25 +19,25 @@ const Title = () => {
     const isOnline = useOnline();
 
     return (
-      <div className="p-1 flex space-y-5 justify-between bg-green-300 shadow-lg">
+      <div className="p-1 flex space-y-5 justify-between bg-green-400 shadow-lg">
         <Title />
         <div>
           <ul className="flex p-2">
-            <li className="p-2"><Link to="/" >Home</Link></li>
-            <li className="p-2"><Link to="/about" >About</Link></li>
-            <li className="p-2"><Link to="/contact" >Contact</Link></li>
-            <li className="p-2"><Link to="/cart">Cart</Link></li>
+            <li className="p-3 text-lg"><Link to="/" >Home</Link></li>
+            <li className="p-3 text-lg"><Link to="/about" >About</Link></li>
+            <li className="p-3 text-lg"><Link to="/contact" >Contact</Link></li>
+            <li className="p-3 text-lg"><Link to="/cart">Cart</Link></li>
           </ul>
         </div>
         {
           (isLoggedIn) ? 
           <button 
-            className="p-2 m-2 bg-red-200 text-white rounded-xl hover:bg-gray-500" 
+            className="p-3 mb-6 m-2 bg-red-300 text-white rounded-xl hover:bg-gray-500" 
             onClick={() => setIsLoggedIn(false)}>
             logout
           </button> :
           <button 
-            className="p-2 m-2 px-2 bg-red-200 text-white rounded-xl hover:bg-gray-500" 
+            className="p-3 mb-6 m-2 px-2 bg-red-300 text-white rounded-xl hover:bg-gray-500" 
             onClick={() => setIsLoggedIn(true)}>
             login
           </button>
