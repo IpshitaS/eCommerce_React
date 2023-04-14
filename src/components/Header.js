@@ -1,6 +1,7 @@
 import { useState} from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useSelector } from "react-redux";
 
 const Title = () => {
     return (
@@ -16,32 +17,53 @@ const Title = () => {
 
   const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const isOnline = useOnline();
+    //const isOnline = useOnline();
 
+    const cartItem = useSelector(store => store.cart.items);
+    console.log(cartItem);
+    
     return (
-      <div className="p-1 flex space-y-5 justify-between bg-green-400 shadow-lg">
+      <div className="px-14 flex space-y-5 justify-between bg-green-400 shadow-lg">
         <Title />
         <div>
           <ul className="flex p-2">
-            <li className="p-3 text-lg"><Link to="/" >Home</Link></li>
-            <li className="p-3 text-lg"><Link to="/about" >About</Link></li>
-            <li className="p-3 text-lg"><Link to="/contact" >Contact</Link></li>
-            <li className="p-3 text-lg"><Link to="/cart">Cart</Link></li>
-          </ul>
-        </div>
-        {
+            <li className="p-2 text-lg hover:bg-red-300 rounded-r">
+              <Link to="/" >
+                {/* <img className="w-8" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU" /> */}
+                Home
+              </Link>
+            </li>
+            <li className="p-2 text-lg hover:bg-red-300">
+              <Link to="/about" >About</Link>
+            </li>
+            <li className="p-2 text-lg hover:bg-red-300">
+              <Link className=" flex" to="/contact" >
+                <img className="w-10" src ="https://cdn-icons-png.flaticon.com/512/3095/3095583.png" /> 
+              </Link>
+            </li>
+            <li className="p-2 text-lg hover:bg-red-300">
+              <Link className=" flex" to="/cart">
+                <img className="w-10" src ="https://cdn-icons-png.flaticon.com/512/34/34627.png" /> 
+                {cartItem.length}
+              </Link>
+            </li>
+            {
           (isLoggedIn) ? 
           <button 
-            className="p-3 mb-6 m-2 bg-red-300 text-white rounded-xl hover:bg-gray-500" 
+            className="p-2 text-lg hover:bg-red-300" 
             onClick={() => setIsLoggedIn(false)}>
             logout
           </button> :
           <button 
-            className="p-3 mb-6 m-2 px-2 bg-red-300 text-white rounded-xl hover:bg-gray-500" 
+            className="p-2 text-lg font-bold flex hover:bg-red-300" 
             onClick={() => setIsLoggedIn(true)}>
-            login
+              {/* <img className="w-8" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU" /> */}
+            Ipshita
           </button>
         }
+          </ul>
+        </div>
+        
       </div>
     );
   };
