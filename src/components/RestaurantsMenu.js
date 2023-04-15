@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { img_CDN_URL } from "../config";
-import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantsMenu = () => {
     const {resId} = useParams();
@@ -18,10 +18,10 @@ const RestaurantsMenu = () => {
     };
     
     return !restaurant ? (
-        <Shimmer />
+        <ShimmerMenu />
     ) : (
       <div>
-        <div className="flex p-3 mx-20 bg-green-200 justify-evenly">   
+        <div className="flex p-3 mx-20 bg-blue-700 justify-evenly">   
           <img 
             className="h-48" 
             src={img_CDN_URL + restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId} 
@@ -35,15 +35,10 @@ const RestaurantsMenu = () => {
             <h2>{restaurant?.cards[0]?.card?.card?.info?.cuisines.join(", ")}</h2>
            </div>
         </div>
-
-        {/* Closers
-        <div className="py-2 px-5 mx-5">               
-        <h3>{restaurant?.cards[0]?.card?.card?.info?.costForTwo} for two</h3>
-        </div> */}
-
+        
         {/* Menu display */}
         <div className="p-10 m-10">
-          {!restaurant ? (<Shimmer />) : (
+          {!restaurant ? (<ShimmerMenu />) : (
             <div>
             {
               restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((Cards, index) => (
@@ -78,8 +73,8 @@ const RestaurantsMenu = () => {
                            </div>
                            <div className="">
                            <img className="w-20" src={img_CDN_URL + itemCards?.card?.info.imageId} />
-                           <button className="px-7 border" onClick={() => addFoodItem(itemCards?.card?.info) }>
-                             add
+                           <button className="px-7 border hover:scale-105 duration-500 cursor-pointer" onClick={() => addFoodItem(itemCards?.card?.info) }>
+                             Add
                            </button>
                            </div>
                          </div>                                          

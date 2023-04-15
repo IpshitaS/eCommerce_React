@@ -1,13 +1,13 @@
 const Shimmer = () => {
     return (
         <>
-        <div className="p-2 bg-green-200 mx-12">
+        <div className="px-5 py-1 bg-blue-500 mx-28 flex justify-evenly">
             <input
               type="text"
               className="focus:bg-slate-300 ml-52"
               placeholder="Search"
             />
-            <button className="p-2 bg-red-300 text-white rounded-xl hover:bg-gray-500">
+            <button className="p-2 bg-gray-600 text-white rounded-xl hover:bg-gray-500">
                 Search Restro...
             </button>
             <input
@@ -15,12 +15,12 @@ const Shimmer = () => {
               className="focus:bg-slate-300 ml-60"
               placeholder="Location"
             />
-            <button className="p-2 bg-red-300 text-white rounded-xl hover:bg-gray-500">
+            <button className="p-2 bg-gray-600 text-white rounded-xl hover:bg-gray-500">
                 Location
             </button>
         </div>
-        <div className="flex flex-wrap p-2 m-2">
-            {Array(10)
+        <div className="flex flex-wrap p-2 m-2 mx-16 justify-center">
+            {Array(4)
             .fill("")
             .map((e, index) => (
                 <div key ={index} className="w-64 h-80 m-5 p-2 shadow-xl border-solid border-gray-200 border-2">
