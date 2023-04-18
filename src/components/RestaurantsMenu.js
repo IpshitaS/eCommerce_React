@@ -73,7 +73,7 @@ const RestaurantsMenu = () => {
                            </div>
                            <div className="">
                            <img className="w-20" src={img_CDN_URL + itemCards?.card?.info.imageId} />
-                           <button className="px-7 border hover:scale-105 duration-500 cursor-pointer" onClick={() => addFoodItem(itemCards?.card?.info) }>
+                           <button className="px-7 border hover:scale-105 duration-800 cursor-pointer active:bg-slate-600" onClick={() => addFoodItem(itemCards?.card?.info) }>
                              Add
                            </button>
                            </div>
