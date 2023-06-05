@@ -7,6 +7,7 @@ const Title = () => {
     return (
       <a href="/">
         <img
+          data-testid="logo"
           className="h-24  px-5 pt-1"
           alt="logo"
           src="https://yt3.googleusercontent.com/ytc/AL5GRJXudT76175T4x4n7eslWM1YkgNLHDSSqfXGoadl=s900-c-k-c0x00ffffff-no-rj"
@@ -17,7 +18,7 @@ const Title = () => {
 
   const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    //const isOnline = useOnline();
+    const isOnline = useOnline();
 
     const cartItem = useSelector(store => store.cart.items);
     console.log(cartItem);
@@ -25,6 +26,7 @@ const Title = () => {
     return (
       <div className="px-14 flex space-y-5 justify-between bg-blue-900 shadow-lg">
         <Title />
+        <h1 data-testid="online-status">{isOnline ? '🟢' : '🔴'}</h1>
         <div>
           <ul className="flex">
             <li className="focus:border-transparen my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-base font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400">
@@ -41,7 +43,7 @@ const Title = () => {
               </Link>
             </li>
             <li className="focus:border-transparen my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-base font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400">
-              <Link className=" flex" to="/cart">
+              <Link className=" flex" data-testid="item-num" to="/cart">
                 <img className="w-10" src ="https://cdn-icons-png.flaticon.com/512/34/34627.png" /> 
                 {cartItem.length}
               </Link>
