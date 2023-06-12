@@ -34695,6 +34695,7 @@ const Body = ()=>{
                     /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
                         children: [
                             /*#__PURE__*/ (0, _jsxRuntime.jsx)("input", {
+                                "data-testid": "search-string",
                                 type: "text",
                                 className: "focus:bg-slate-300",
                                 placeholder: "Search Restaurant...",
@@ -34705,6 +34706,7 @@ const Body = ()=>{
                             }),
                             /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
                                 className: "px-5 bg-gray-600 text-white rounded-xl hover:bg-gray-500",
+                                "data-testid": "search-btn",
                                 onClick: ()=>{
                                     //need to filter the data
                                     const data = (0, _helper.filterData)(searchText, allRestaurants);
@@ -34732,6 +34734,7 @@ const Body = ()=>{
             }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                 className: "flex flex-wrap p-2 m-2 mx-16 justify-center",
+                "data-testid": "restaurant-list",
                 children: filteredRestaurants.map((restaurant)=>{
                     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
                         to: "/restraunt/" + restaurant.data.id,
@@ -34830,7 +34833,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _jsxRuntime = require("360857e86b5c1b69");
 const Shimmer = ()=>{
-    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+        "data-testid": "shimmer-load",
         children: [
             /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
                 className: "px-5 py-1 bg-blue-500 mx-28 flex justify-evenly",
@@ -39135,7 +39139,8 @@ const RestaurantsMenu = ()=>{
                             /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h2", {
                                 children: [
                                     restaurant?.cards[0]?.card?.card?.info?.areaName,
-                                    " , ",
+                                    " ,",
+                                    " ",
                                     restaurant?.cards[0]?.card?.card?.info?.city
                                 ]
                             }),
@@ -39200,48 +39205,47 @@ const RestaurantsMenu = ()=>{
                                             })
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("ul", {
+                                        "data-testid": "menu",
                                         children: Cards?.card?.card?.itemCards?.map((itemCards)=>/*#__PURE__*/ //display menu
-                                            (0, _jsxRuntime.jsx)("div", {
-                                                className: "m-8 p-8 shadow-xl",
-                                                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-                                                    className: "justify-between flex",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("h2", {
-                                                                    className: "text-lg font-bold",
-                                                                    children: itemCards?.card?.info.name
-                                                                }),
-                                                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h2", {
-                                                                    className: "font-bold text-base",
-                                                                    children: [
-                                                                        "Rs.",
-                                                                        itemCards?.card?.info.price / 100
-                                                                    ]
-                                                                }),
-                                                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("h2", {
-                                                                    className: "text-base",
-                                                                    children: itemCards?.card?.info.description
-                                                                })
-                                                            ]
-                                                        }),
-                                                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-                                                            className: "",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
-                                                                    className: "w-20",
-                                                                    src: _config.img_CDN_URL + itemCards?.card?.info.imageId
-                                                                }),
-                                                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                                                                    className: "px-7 border hover:scale-105 duration-800 cursor-pointer active:bg-slate-600",
-                                                                    onClick: ()=>addFoodItem(itemCards?.card?.info),
-                                                                    children: "Add"
-                                                                })
-                                                            ]
-                                                        })
-                                                    ]
-                                                })
+                                            (0, _jsxRuntime.jsxs)("li", {
+                                                className: "justify-between flex m-8 p-8 shadow-xl",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h2", {
+                                                                className: "text-lg font-bold",
+                                                                children: itemCards?.card?.info.name
+                                                            }),
+                                                            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h2", {
+                                                                className: "font-bold text-base",
+                                                                children: [
+                                                                    "Rs.",
+                                                                    itemCards?.card?.info.price / 100
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h2", {
+                                                                className: "text-base",
+                                                                children: itemCards?.card?.info.description
+                                                            })
+                                                        ]
+                                                    }),
+                                                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                                                        className: "",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                                                                className: "w-20",
+                                                                src: _config.img_CDN_URL + itemCards?.card?.info.imageId
+                                                            }),
+                                                            /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                                                                "data-testid": "add-Btn",
+                                                                className: "px-7 border hover:scale-105 duration-800 cursor-pointer active:bg-slate-600",
+                                                                onClick: ()=>addFoodItem(itemCards?.card?.info),
+                                                                children: "Add"
+                                                            })
+                                                        ]
+                                                    })
+                                                ]
                                             }, itemCards?.card?.info.id))
                                     })
                                 ]
@@ -39354,7 +39358,7 @@ const ShimmerMenu = ()=>{
                                     })
                                 ]
                             })
-                        }))
+                        }, index))
                 })
             })
         ]
